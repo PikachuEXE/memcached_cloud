@@ -1,0 +1,21 @@
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "memcached_cloud/version"
+
+Gem::Specification.new do |spec|
+  spec.name        = "memcached_cloud"
+  spec.version     = MemcachedCloud::VERSION
+  spec.summary     = "Compatibility gem for using memcached libraries with Memcached Cloud"
+  spec.description = "Simple gem that sets the memcached environment variables to the values of corresponding Memcached Cloud environment variables.
+                   This makes it seemless to use Memcached Cloud in environments like Heroku using the Dalli or other compatible memcached gem."
+  spec.authors     = ["PikachuEXE"]
+  spec.email       = "pikachuexe@gmail.com"
+  spec.files       = ["lib/memcached_cloud.rb", "LICENSE"]
+  spec.homepage    = "http://github.com/PikachuEXE/memcached_cloud"
+  spec.license     = "MIT"
+
+  spec.add_development_dependency "bundler", "~> 1.5"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec", "~> 2.14"
+  spec.add_development_dependency "gem-release", ">= 0.7"
+end
