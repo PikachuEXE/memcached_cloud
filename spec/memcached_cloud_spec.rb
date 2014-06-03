@@ -13,23 +13,23 @@ describe "Memcachier" do
       context 'when memcached_cloud env bar is not set'
       it "not set by default" do
         load memcached_cloud_file
-        ENV[var].should be_nil
+        expect(ENV[var]).to be_nil
       end
       it "copied from memcached_cloud" do
         ENV[memcached_cloud_var] = "set"
         load memcached_cloud_file
-        ENV[var].should == "set"
+        expect(ENV[var]).to eq "set"
       end
       it "overwritten by memcached_cloud" do
         ENV[var] = "old"
         ENV[memcached_cloud_var] = "new"
         load memcached_cloud_file
-        ENV[var].should == "new"
+        expect(ENV[var]).to eq "new"
       end
       it "not removed by memcached_cloud" do
         ENV[var] = "old"
         load memcached_cloud_file
-        ENV[var].should == "old"
+        expect(ENV[var]).to eq "old"
       end
     end
   end
